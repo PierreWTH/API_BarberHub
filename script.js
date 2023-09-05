@@ -27,19 +27,25 @@ $(document).ready(function () {
                 var resultsDiv = $(".result");
                 // On la vide a chaque recherche
                 resultsDiv.empty();
+                if($.isEmptyObject(data)){
+                    var notFound = $("<p> Aucun élément ne corresponds à votre recherche. </p>");
+                    resultsDiv.append(notFound);
+                }
+                else{
                 // Pour chaque résultat, on l'affiche dans result
                 $.each(data, function (index, barber) {
                     var barberCard = $("<div class='barber-card'></div>");
                     var h1 = $("<h1>" + barber.nom + "</h1>");
                     var img = $("<img src='" + barber.photo + "' class='barber-img'>");
                     var adresse = $("<p><i class='fa-solid fa-location-dot'></i>&nbsp;" + barber.adresse + ", " + barber.ville + "</p>")
-                    var button = $("<a href='' id='discover' data-id='" + barber.id + "'> Découvrir </a>");
+                    var button = $("<a href='#' class='discover' data-id='" + barber.id + "'> Découvrir </a>");
                     barberCard.append(h1);
                     barberCard.append(adresse);
                     barberCard.append(img);
                     barberCard.append(button);
                     resultsDiv.append(barberCard);
                 });
+            }
             },
             error: function (error) {
                 console.error("Erreur lors de la requête :", error);
@@ -48,11 +54,12 @@ $(document).ready(function () {
     });
    
     // DETAIL D'UN BARBER
-    $(document).on('click', '#discover', function (e) {            
-        e.preventDefault();
-        var resultsDiv = $(".result");
+        $(document).on('click', '.discover', function (e) {        
+            e.preventDefault();
+            var resultsDiv = $(".result");
         // On récupère l'id du barbier dans le data-id du lien 
         var barberId = $(this).data('id');
+        console.log(barberId)
 
         // On refait une requete pour récuperer seulement les données du barbier selectionné
         $.ajax({
@@ -60,7 +67,7 @@ $(document).ready(function () {
             method: "GET", 
             dataType: "json", 
             success: function (data) {
-                resultsDiv.empty();
+                    resultsDiv.empty();
                     var barberDetail = $("<div class='barber-detail'></div>");
                     var h1 = $("<h1>" + data.nom + "</h1>");
                     var img = $("<img src='" + data.photo + "' class='barber-img'>");
@@ -76,9 +83,9 @@ $(document).ready(function () {
                 console.error("Erreur lors de la requête :", error);
             }
         });
+    
 
     })
-    
 
 });
 

@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Smythe&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+
+/****** GENERAL *******/
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ 
+}
+
+body {
+    font-family: 'Poppins';
+    font-weight: 400;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a{
+    text-decoration: none;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    gap: 5rem;
+    padding: 3rem 0rem;
+}
+
+.result{
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.barber-card{
+    background-color: white;
+    border-radius: 10px;
+    width: 400px;
+    height: auto;
+    padding: 2rem;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.barber-card a {
+    margin-top: 1rem;
+    display: block;
+   text-align: center;
+    padding: 1rem;
+    border: 2px solid black;
+    border-radius: 5px;
+    color: black;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.barber-card a:hover {
+    background-color: black;
+    color: white;
+}
+
+.barber-img{
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.barber-detail{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+
+h1{
+    font-family: 'Smythe';
+    font-size: 40px;
+}
+
+#formAPI {
+    display: flex;
+    gap: 1rem;
+}
+
+#searchbar{
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 1px solid #c4c4c4;
+    padding: 0.8em;
+    font-size: 0.875rem;
+}
+
+#selectCity {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background-color: white;
+    border: 1px solid #c4c4c4;
+    padding: 0.8em;
+    font-size: 0.875rem;
+}

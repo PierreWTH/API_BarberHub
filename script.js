@@ -38,7 +38,7 @@ $(document).ready(function () {
                     var h1 = $("<h1>" + barber.nom + "</h1>");
                     var img = $("<img src='" + barber.photo + "' class='barber-img'>");
                     var adresse = $("<p><i class='fa-solid fa-location-dot'></i>&nbsp;" + barber.adresse + ", " + barber.ville + "</p>")
-                    var button = $("<a href='#' class='discover' data-id='" + barber.id + "'> Découvrir </a>");
+                    var button = $("<a href='' class='discover' data-id='" + barber.id + "'> Découvrir </a>");
                     barberCard.append(h1);
                     barberCard.append(adresse);
                     barberCard.append(img);
